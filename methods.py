@@ -94,3 +94,43 @@ def printTablero(tablero):
 
         print(posAlp(i) + row)
         row = ""
+
+
+def fillTableroPc(tablero, listaXY):
+    """
+    Devuelve una matriz con las posiciones de los barcos segun
+    la lista de posiciones
+    tablero: matrix vacia de 10x10
+    listaXY: posiciones deseadas para la matrix en formato alfanumerico
+    """
+    tableroPc = tablero
+    for i in range(0, 5):
+        pos = listaXY[i]
+        y_num = posY(pos[0])
+        x = int(pos[1])
+        tableroPc[y_num][x] = ship_symbol("Portaviones")
+
+    for i in range(5, 9):
+        pos = listaXY[i]
+        y_num = posY(pos[0])
+        x = int(pos[1])
+        tableroPc[y_num][x] = ship_symbol("Battleship")
+
+    for i in range(9, 12):
+        pos = listaXY[i]
+        y_num = posY(pos[0])
+        x = int(pos[1])
+        tableroPc[y_num][x] = ship_symbol("Crucero de batalla")
+
+    for i in range(12, 14):
+        pos = listaXY[i]
+        y_num = posY(pos[0])
+        x = int(pos[1])
+        tableroPc[y_num][x] = ship_symbol("Submarino")
+
+        pos = listaXY[14]
+        y_num = posY(pos[0])
+        x = int(pos[1])
+        tableroPc[y_num][x] = ship_symbol("Lancha")
+
+    return tableroPc
