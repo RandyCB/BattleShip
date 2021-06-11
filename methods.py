@@ -1,3 +1,4 @@
+import random
 
 def posY(letra):
 
@@ -134,3 +135,52 @@ def fillTableroPc(tablero, listaXY):
         tableroPc[y_num][x] = ship_symbol("Lancha")
 
     return tableroPc
+
+def PC_Ataca(listaAtaques):
+    """
+    genera una coordenada alfanumerica con el fin de atacar un tablero
+    listaAtaques: guarda los anteriores posiciones atacadas 
+    """
+    y_Axis = ['A','B','C','D','E', 'F', 'G', 'H', 'I', 'J']
+    x = random.randint(0,9)
+    y = random.choice(y_Axis)
+    pos = y + str(x)
+    while(pos in listaAtaques):
+        x = random.randint(0,9)
+        y = random.choice(y_Axis)
+        pos = y + str(x)
+
+    return pos
+
+
+def Coordenadas_Disparo(pos):
+         
+    """
+    verifica si pos corresponde a una coordenada dentro del rango 
+    alfanumerico de [A,J] y [0. 9]
+    retorno: True si se haya en los rangos
+    de lo contrario False
+    """
+    x_Axis = ['0','1','2','3','4','5','6','7','8','9']     
+    y_Axis = ['A','B','C','D','E', 'F', 'G', 'H', 'I', 'J']
+    if(pos[0] in y_Axis and pos[1] in x_Axis):
+        return True
+
+    else:
+        return False
+    
+
+def Verificar_acierto(tablero_PC, ataque, tablero_Marcador):
+    y = posY(ataque[0])
+    x = int(ataque[1])
+
+    if(tablero_PC[y][x] != " "):
+        tablero_Marcador[y][x] = "A"
+
+    else:
+        tablero_Marcador[y][x] = "X"
+
+    return tablero_Marcador
+
+
+
