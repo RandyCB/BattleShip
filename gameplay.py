@@ -57,11 +57,11 @@ for line in f:
             pass
 
 tableroPC = methods.fillTableroPc(tableroPC, listaXY)
-methods.printTablero(tableroPC)
+#methods.printTablero(tableroPC)
 #ataque = methods.PC_Ataca(lista_ataques_pc)
 #print(ataque)
 
-
+tablero = copy.deepcopy(tableroPC)
 
 jugar = True
 
@@ -76,10 +76,29 @@ while(jugar):
         pos = input("Ingrese coordenada de ataque ")
         check_ataque = methods.Coordenadas_Disparo(pos)
 
+
+    acierto_user = methods.Verificar_fallo(tableroPC, pos)
+    if(acierto_user):
+        print("Acertó")
+    else:
+        print("Falló")
+
     tablero_Marcador = methods.Verificar_acierto(tableroPC, pos, tablero_Marcador)
     
     
-    methods.printTablero(tablero_Marcador)
+    methods.printTablero(tablero_Marcador)     
+    ataque = methods.PC_Ataca(lista_ataques_pc)
+    print("PC ataca "+ ataque)
+    acierto = methods.Verificar_fallo(tablero, ataque)
+    if(acierto):
+        print("Acertó")
+    else:
+        print("Falló")
 
+    lista_ataques_pc.append(ataque)
+    tablero = methods.Verificar_acierto(tablero, ataque, tablero)
+    methods.printTablero(tablero)
+    
+    print("\n"*3)
     
 

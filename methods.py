@@ -171,6 +171,12 @@ def Coordenadas_Disparo(pos):
     
 
 def Verificar_acierto(tablero_PC, ataque, tablero_Marcador):
+
+    """
+    verifica si la pos de ataque en tablero_PC se encentra vacia o
+    contiene un barco
+    retorna una matriz con los respectivos aciertos (A) y fallos (X)
+    """
     y = posY(ataque[0])
     x = int(ataque[1])
 
@@ -182,5 +188,15 @@ def Verificar_acierto(tablero_PC, ataque, tablero_Marcador):
 
     return tablero_Marcador
 
+
+def Verificar_fallo(tablero, ataque):
+    y = posY(ataque[0])
+    x = int(ataque[1])
+
+    if(tablero[y][x] != " "):
+        return True
+
+    else:
+        return False
 
 
