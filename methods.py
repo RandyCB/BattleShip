@@ -87,7 +87,7 @@ def printTablero(tablero):
     Da formato de tablero a un array 2D y lo imprime en pantalla
     tablero: array 2D de tipo char
     """
-    print("    0   1   2   3   4   5   6   7    8   9")
+    print("    0   1   2   3   4   5   6   7   8   9")
     row = ""
     for i in range(10):
         for j in range(10):
@@ -199,4 +199,15 @@ def Verificar_fallo(tablero, ataque):
     else:
         return False
 
+
+def Barco_atacado(tablero, ataque):
+    """
+    Regresa el simbolo del barco segun
+    las coordenadas de ataque
+    """
+
+    y = posY(ataque[0])
+    x = int(ataque[1])
+
+    return tablero[y][x]
 
