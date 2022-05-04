@@ -1,0 +1,5 @@
+Portaviones: J0,J1,J2,J3,J4
+Battleship : A6,B6,C6,D6
+Crucero    : H5,H6,H7
+Submarino  : F9,G9
+Lancha     : C3
